@@ -23,7 +23,7 @@ class ProductRegistrationScreen extends StatefulWidget {
 }
 
 class _ProductRegistrationScreenState extends State<ProductRegistrationScreen> {
-  // Controladores para os campos de texto
+ 
   TextEditingController _nameController = TextEditingController();
   TextEditingController _quantityController = TextEditingController();
   TextEditingController _barcodeController = TextEditingController();
@@ -65,7 +65,7 @@ class _ProductRegistrationScreenState extends State<ProductRegistrationScreen> {
             SizedBox(height: 32.0),
             ElevatedButton(
               onPressed: () {
-                // Implemente a lógica para salvar os dados do produto
+              
                 saveProduct();
               },
               child: Text('Salvar'),
@@ -76,14 +76,14 @@ class _ProductRegistrationScreenState extends State<ProductRegistrationScreen> {
     );
   }
 
-  // Método para salvar os dados do produto
+ 
   void saveProduct() {
     String name = _nameController.text;
     String quantity = _quantityController.text;
     String barcode = _barcodeController.text;
     String value = _valueController.text;
 
-    // Implemente a lógica para salvar os dados, por exemplo, enviar para um servidor ou salvar localmente
+    
     print('Nome: $name, Quantidade: $quantity, Código de Barras: $barcode, Valor: $value');
   }
 }
