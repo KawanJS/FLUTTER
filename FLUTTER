@@ -1,0 +1,89 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Cadastro de Produto',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: ProductRegistrationScreen(),
+    );
+  }
+}
+
+class ProductRegistrationScreen extends StatefulWidget {
+  @override
+  _ProductRegistrationScreenState createState() => _ProductRegistrationScreenState();
+}
+
+class _ProductRegistrationScreenState extends State<ProductRegistrationScreen> {
+  // Controladores para os campos de texto
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _quantityController = TextEditingController();
+  TextEditingController _barcodeController = TextEditingController();
+  TextEditingController _valueController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cadastro de Produto'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextField(
+              controller: _nameController,
+              decoration: InputDecoration(labelText: 'Nome'),
+            ),
+            SizedBox(height: 16.0),
+            TextField(
+              controller: _quantityController,
+              decoration: InputDecoration(labelText: 'Quantidade'),
+              keyboardType: TextInputType.number,
+            ),
+            SizedBox(height: 16.0),
+            TextField(
+              controller: _barcodeController,
+              decoration: InputDecoration(labelText: 'Código de Barras'),
+              keyboardType: TextInputType.number,
+            ),
+            SizedBox(height: 16.0),
+            TextField(
+              controller: _valueController,
+              decoration: InputDecoration(labelText: 'Valor'),
+              keyboardType: TextInputType.number,
+            ),
+            SizedBox(height: 32.0),
+            ElevatedButton(
+              onPressed: () {
+                // Implemente a lógica para salvar os dados do produto
+                saveProduct();
+              },
+              child: Text('Salvar'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Método para salvar os dados do produto
+  void saveProduct() {
+    String name = _nameController.text;
+    String quantity = _quantityController.text;
+    String barcode = _barcodeController.text;
+    String value = _valueController.text;
+
+    // Implemente a lógica para salvar os dados, por exemplo, enviar para um servidor ou salvar localmente
+    print('Nome: $name, Quantidade: $quantity, Código de Barras: $barcode, Valor: $value');
+  }
+}
